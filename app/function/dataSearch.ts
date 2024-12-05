@@ -1,8 +1,8 @@
-// hooks/useSearch.ts
-import { Country } from "./useCountryData";
+
+import { Country } from "./countryData";
 import { useState } from "react";
 
-export const useSearch = (originalData: Country[], setFilteredData: (data: Country[]) => void) => {
+export const dataSearch = (originalData: Country[], setFilteredData: (data: Country[]) => void) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (term: string) => {

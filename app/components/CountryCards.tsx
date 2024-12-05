@@ -1,13 +1,13 @@
-// components/CountryCard.tsx
+
 import React from "react";
 import Image from "next/image";
-import { Country } from "../hooks/useCountryData";
+import { Country } from "../function/countryData";
 
-interface CountryCardProps {
+interface CountryCardsProps {
   country: Country;
 }
 
-const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
+const CountryCards: React.FC<CountryCardsProps> = ({ country }) => {
   return (
     <div className="card">
       <Image src={country.flags.svg} alt={`${country.name.common} flag`} width={200} height={100} />
@@ -19,4 +19,4 @@ const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
   );
 };
 
-export default React.memo(CountryCard);
+export default React.memo(CountryCards);

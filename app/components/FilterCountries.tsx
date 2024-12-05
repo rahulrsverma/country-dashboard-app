@@ -1,21 +1,21 @@
-// components/FilterCountriesByRegion.tsx
+
 import React from "react";
 
-interface FilterCountriesByRegionProps {
+interface FilterCountriesProps {
   regions: string[];
   onFilter: (region: string) => void;
 }
 
-const FilterCountriesByRegion: React.FC<FilterCountriesByRegionProps> = ({ regions, onFilter }) => {
+const FilterCountries: React.FC<FilterCountriesProps> = ({ regions, onFilter }) => {
   const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onFilter(event.target.value);
   };
 
   return (
     <div>
-      <label>Filter by Region: </label>
+      <label> Region List: </label>
       <select onChange={handleRegionChange}>
-        <option value="">All Regions</option>
+        <option value=""> Select Region Name</option>
         {regions.map((region, index) => (
           <option key={index} value={region}>
             {region}
@@ -26,4 +26,4 @@ const FilterCountriesByRegion: React.FC<FilterCountriesByRegionProps> = ({ regio
   );
 };
 
-export default FilterCountriesByRegion;
+export default FilterCountries;

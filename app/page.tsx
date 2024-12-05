@@ -1,22 +1,22 @@
 // page.tsx
 "use client";
 import React from "react";
-import CountryCard from "./components/CountryCard";
+import CountryCards from "./components/CountryCards";
 import "./styles/global.css";
-import FilterCountriesByRegion from "./components/FilterCountriesByRegion";
-import SearchCountryByName from "./components/SearchCountryByName";
-import { useCountryData } from "./hooks/useCountryData";
-import ErrorBoundary from "./components/ErrorBoundary";
-import SortByPopulation from "./components/SortByPupulation";
+import FilterCountriesByRegion from "./components/FilterCountries";
+import SearchCountryByName from "./components/SearchCountry";
+import { countryData } from "./function/countryData";
+import ErrorBoundaries from "./components/ErrorBoundaries";
+import SortByPopulation from "./components/PopulationSort";
 
 const HomePage: React.FC = () => {
-  const { filteredData, regions, isLoading, error, filters, updateFilters } = useCountryData();
+  const { filteredData, regions, isLoading, error, filters, updateFilters } = countryData();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundaries>
       <FilterCountriesByRegion
         regions={regions}
         onFilter={(region) => updateFilters({ region })}
@@ -30,10 +30,10 @@ const HomePage: React.FC = () => {
       />
       <div className="grid">
         {filteredData.map((country) => (
-          <CountryCard key={country.name.common} country={country} />
+          <CountryCards key={country.name.common} country={country} />
         ))}
       </div>
-    </ErrorBoundary>
+    </ErrorBoundaries>
   );
 };
 

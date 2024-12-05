@@ -1,4 +1,4 @@
-// components/ErrorBoundary.tsx
+
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
@@ -9,7 +9,7 @@ interface State {
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+class ErrorBoundaries extends Component<Props, State> {
   state: State = { hasError: false };
 
   static getDerivedStateFromError(): State {
@@ -17,7 +17,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error("ErrorBoundary caught an error", error, info);
+    console.error("ErrorBoundaries caught an error", error, info);
   }
 
   render() {
@@ -29,4 +29,4 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundaries;

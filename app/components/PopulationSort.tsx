@@ -1,18 +1,18 @@
-// components/SortByPopulation.tsx
+
 import React from "react";
 
-interface SortByPopulationProps {
+interface PopulationSortProps {
   onSort: (order: string) => void;
 }
 
-const SortByPopulation: React.FC<SortByPopulationProps> = ({ onSort }) => {
+const PopulationSort: React.FC<PopulationSortProps> = ({ onSort }) => {
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onSort(event.target.value);
   };
 
   return (
     <div>
-      <label>Sort by Population: </label>
+      <label> Population Sort: </label>
       <select onChange={handleSortChange}>
         <option value="default">Default</option>
         <option value="asc">Ascending</option>
@@ -22,4 +22,4 @@ const SortByPopulation: React.FC<SortByPopulationProps> = ({ onSort }) => {
   );
 };
 
-export default SortByPopulation;
+export default PopulationSort;

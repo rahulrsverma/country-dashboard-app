@@ -1,7 +1,7 @@
-// hooks/useSort.ts
-import { Country } from "./useCountryData";
 
-export const useSort = (filteredData: Country[], setFilteredData: (data: Country[]) => void) => {
+import { Country } from "./countryData";
+
+export const dataSort = (filteredData: Country[], setFilteredData: (data: Country[]) => void) => {
   const handleSort = (order: string) => {
     if (order === "asc") {
       const sorted = [...filteredData].sort((a, b) => a.population - b.population);

@@ -1,12 +1,12 @@
-// components/SearchCountryByName.tsx
+
 import React from "react";
 
-interface SearchCountryByNameProps {
+interface SearchCountryProps {
   searchTerm: string;
   onSearch: (term: string) => void;
 }
 
-const SearchCountryByName: React.FC<SearchCountryByNameProps> = ({ searchTerm, onSearch }) => {
+const SearchCountry: React.FC<SearchCountryProps> = ({ searchTerm, onSearch }) => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
   };
@@ -19,4 +19,4 @@ const SearchCountryByName: React.FC<SearchCountryByNameProps> = ({ searchTerm, o
   );
 };
 
-export default SearchCountryByName;
+export default SearchCountry;

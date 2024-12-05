@@ -1,4 +1,3 @@
-// hooks/useCountryData.ts
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -16,7 +15,7 @@ interface Filters {
   sortOrder: "asc" | "desc" | "default";
 }
 
-export const useCountryData = () => {
+export const countryData = () => {
   const [originalData, setOriginalData] = useState<Country[]>([]);
   const [filteredData, setFilteredData] = useState<Country[]>([]);
   const [filters, setFilters] = useState<Filters>({
@@ -51,12 +50,12 @@ export const useCountryData = () => {
   useEffect(() => {
     let updatedData = [...originalData];
 
-    // Apply region filter
+   
     if (filters.region) {
       updatedData = updatedData.filter((country) => country.region === filters.region);
     }
 
-    // Apply search filter
+
     if (filters.searchTerm) {
       const searchTermLower = filters.searchTerm.toLowerCase();
       updatedData = updatedData.filter(
@@ -66,7 +65,7 @@ export const useCountryData = () => {
       );
     }
 
-    // Apply sorting
+   
     if (filters.sortOrder === "asc") {
       updatedData = updatedData.sort((a, b) => a.population - b.population);
     } else if (filters.sortOrder === "desc") {
